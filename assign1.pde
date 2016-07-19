@@ -21,22 +21,26 @@ void setup () {
   enemyImg = loadImage("img/enemy.png");
   bg1  = loadImage("img/bg1.png");
   bg2  = loadImage("img/bg2.png");
+  bg1X =0;
+  bg2X =-640;
   fighterX = 580;
   fighterY = 240;
   hpX = 10;
   hpY = 10;
   bloodVolume = floor(random(0,100));
   treasureX = floor(random(0,480));
-  treasureY = floor(random(0,480));
+  treasureY = floor(random(50,430));
   enemyX = 0;
-  enemyY = floor(random(0,480));
+  enemyY = floor(random(60,420));
 }
 
 void draw() {
   image(bg2,bg2X,0);
   bg2X++;
-  image(bg1,bg2X-640,0);
+  image(bg1,bg1X,0);
   bg1X++;
+  bg1X=bg1X-(int(bg1X/640)*1280);
+  bg2X=bg2X-(int(bg2X/640)*1280);
   image(fighterImg,fighterX,fighterY);
   image(treasureImg,treasureX,treasureY);
   image(enemyImg,enemyX,enemyY);
